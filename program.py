@@ -3,11 +3,9 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 import pickle
-#import matplotlib.pyplot as plt
-#import seaborn as sns
-#import plotly.express as px
+
 import altair as alt
-#import geopy
+
 
 house: object = pickle.load(open('data.pkl', 'rb'))
 pipe = pickle.load(open('pipeline.pkl','rb'))
