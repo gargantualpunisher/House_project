@@ -19,7 +19,7 @@ print("Files in Current Directory:", os.listdir())
 
 # Load the pickled object
 try:
-    pipe = pickle.load(open('pipeline.pkl', 'rb'))
+    Pipe = pickle.load(open('pipeline.pkl', 'rb'))
 except Exception as e:
     print("Error loading 'pipeline.pkl':", str(e))
 
@@ -77,7 +77,7 @@ if sidebar_option == "Predictor":
         # Convert the dictionary to a pandas DataFrame
         query_df = pd.DataFrame([query_data])
 
-        prediction = round(pipe.predict(query_df).item())
+        prediction = round(Pipe.predict(query_df).item())
 
         # Display the rounded prediction as a title
         st.title(f"Property Price is: {prediction}")
