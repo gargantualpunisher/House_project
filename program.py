@@ -5,26 +5,9 @@ import streamlit as st
 import pickle
 import os
 import altair as alt
-
-
 house: object = pickle.load(open('data.pkl', 'rb'))
-#pipe = pickle.load(open('pipeline.pkl','rb'))
 data: object = pickle.load(open('tune (1).pkl', 'rb'))
-
-
-print("Current Directory:", os.getcwd())
-
-# List files in the current directory
-print("Files in Current Directory:", os.listdir())
-
-# Load the pickled object
-try:
-    Pipe = pickle.load(open('pipeline.pkl', 'rb'))
-except Exception as e:
-    print("Error loading 'pipeline.pkl':", str(e))
-
-
-
+Pipe1 = pickle.load(open('pipeline.pkl', 'rb'))
 
 sidebar_option = st.sidebar.selectbox("Select an Option", ["Predictor", "Recommender","Dashboard"])
 
@@ -77,7 +60,7 @@ if sidebar_option == "Predictor":
         # Convert the dictionary to a pandas DataFrame
         query_df = pd.DataFrame([query_data])
 
-        prediction = round(Pipe.predict(query_df).item())
+        prediction = round(Pipe1.predict(query_df).item())
 
         # Display the rounded prediction as a title
         st.title(f"Property Price is: {prediction}")
