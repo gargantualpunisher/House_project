@@ -7,6 +7,7 @@ import os
 import altair as alt
 house: object = pickle.load(open('data.pkl', 'rb'))
 data: object = pickle.load(open('tune (1).pkl', 'rb'))
+
 Pipe1 = pickle.load(open('pipeline.pkl', 'rb'))
 
 sidebar_option = st.sidebar.selectbox("Select an Option", ["Predictor", "Recommender","Dashboard"])
