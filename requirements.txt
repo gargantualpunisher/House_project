@@ -4,4 +4,4 @@ seaborn
 numpy
 pandas
 scipy 
-pickle
+sklearn
