@@ -3,13 +3,27 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 import pickle
-
+import os
 import altair as alt
 
 
 house: object = pickle.load(open('data.pkl', 'rb'))
-pipe = pickle.load(open('pipeline.pkl','rb'))
+#pipe = pickle.load(open('pipeline.pkl','rb'))
 data: object = pickle.load(open('tune (1).pkl', 'rb'))
+
+
+print("Current Directory:", os.getcwd())
+
+# List files in the current directory
+print("Files in Current Directory:", os.listdir())
+
+# Load the pickled object
+try:
+    pipe = pickle.load(open('pipeline.pkl', 'rb'))
+except Exception as e:
+    print("Error loading 'pipeline.pkl':", str(e))
+
+
 
 
 sidebar_option = st.sidebar.selectbox("Select an Option", ["Predictor", "Recommender","Dashboard"])
